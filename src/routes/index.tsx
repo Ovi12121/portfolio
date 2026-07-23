@@ -336,7 +336,7 @@ function Index() {
         </div>
 
         {/* Testimonial strip */}
-        <div className="mx-auto hidden max-w-6xl px-6 pb-10 md:block">
+        <div className="mx-auto block max-w-6xl px-6 pb-10">
           <div className="grid gap-4 md:grid-cols-3">
             {testimonials.map((t, i) => (
               <blockquote key={i} className="rounded-xl border border-border bg-white p-5 text-sm text-muted-foreground shadow-sm">
