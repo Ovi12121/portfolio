@@ -5,21 +5,71 @@ import heroAsset from "@/assets/ovi-portrait.webp.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier" },
+      { charSet: "utf-8" },
+
+      // ✅ TITLE
+      {
+        title:
+          "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier",
+      },
+
+      // ✅ DESCRIPTION
       {
         name: "description",
         content:
           "Freelance Workflow Automation & AI Agents specialist. I build systems with n8n, Make.com & Zapier that save time, capture leads, and scale your business on autopilot.",
       },
-      { property: "og:title", content: "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier" },
+
+      // ✅ AUTHOR
+      { name: "author", content: "Shahedul Islam Ovi" },
+
+      // ✅ OPEN GRAPH (for Facebook, LinkedIn, etc.)
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://shahedulislamovi.com/" },
+      {
+        property: "og:title",
+        content:
+          "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier",
+      },
       {
         property: "og:description",
-        content: "Freelance Workflow Automation & AI Agents specialist. I build systems with n8n, Make.com & Zapier that save time, capture leads, and scale your business on autopilot.",
+        content:
+          "Freelance Workflow Automation & AI Agents specialist. I build systems with n8n, Make.com & Zapier that save time and scale your business.",
       },
-      { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1a3a6f4-a15d-4a22-9969-deb09f955589/id-preview-4995e562--53e2c349-7eb3-4035-88b2-e408a3534a22.lovable.app-1784800680878.png",
+      },
+
+      // ✅ TWITTER
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content:
+          "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Automation & AI Specialist building systems with n8n, Make.com & Zapier.",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1a3a6f4-a15d-4a22-9969-deb09f955589/id-preview-4995e562--53e2c349-7eb3-4035-88b2-e408a3534a22.lovable.app-1784800680878.png",
+      },
+    ],
+
+    links: [
+      // ✅ CANONICAL (VERY IMPORTANT FOR GOOGLE)
+      {
+        rel: "canonical",
+        href: "https://shahedulislamovi.com/",
+      },
     ],
   }),
+
   component: Index,
 });
 
@@ -34,7 +84,6 @@ const allVideos = [
   { id: "spnfNvlQo9k", title: "WhatsApp AI E-commerce Bot", desc: "24/7 AI bot that sells and supports on WhatsApp." },
   { id: "X9azx1AclVI", title: "AI Facebook Lead Processor", desc: "Instantly qualify and route Facebook leads to your CRM." },
 ];
-
 
 const services = [
   "Workflow Automation",
@@ -334,7 +383,6 @@ function Index() {
               Most of my clients start seeing results within weeks — saving <span className="font-semibold text-foreground">14–35 hours per week</span>, reducing manual admin by 60%+, and responding to leads faster than ever before.
             </p>
           </div>
-
         </div>
       </section>
 
