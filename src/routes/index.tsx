@@ -335,11 +335,11 @@ function Index() {
           </div>
         </div>
 
-        {/* Testimonial strip */}
-        <div className="mx-auto block max-w-6xl px-6 pb-10">
-          <div className="grid gap-4 md:grid-cols-3">
+      {/* Testimonial strip */}
+        <div className="mx-auto max-w-6xl px-6 pb-10">
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible">
             {testimonials.map((t, i) => (
-              <blockquote key={i} className="rounded-xl border border-border bg-white p-5 text-sm text-muted-foreground shadow-sm">
+              <blockquote key={i} className="min-w-[85%] snap-center rounded-xl border border-border bg-white p-5 text-sm text-muted-foreground shadow-sm md:min-w-0">
                 <div className="mb-2" style={{ color: "#f5b301" }}>★★★★★</div>
                 <p>"{t}"</p>
               </blockquote>
