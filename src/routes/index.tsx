@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import heroAsset from "@/assets/ovi-portrait.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -141,6 +140,7 @@ function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: stri
           loading="lazy"
           allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
         />
       ) : (
         <button onClick={onPlay} className="group relative block h-full w-full" aria-label={`Play ${title}`}>
@@ -167,10 +167,11 @@ function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }
       {playing ? (
         <iframe
           className="h-full w-full"
-          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1&hd=1&vq=hd1080"
+          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1"
           title="Intro video"
           allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
         />
       ) : (
         <button onClick={onPlay} className="group relative block h-full w-full" aria-label="Play intro video">
@@ -202,6 +203,20 @@ function Index() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+
+  const handleHeroPlay = () => {
+    requestAnimationFrame(() => {
+      setHeroPlaying(true);
+      setPlayingVideo(null);
+    });
+  };
+
+  const handlePlay = (index: number) => {
+    requestAnimationFrame(() => {
+      setPlayingVideo(index);
+      setHeroPlaying(false);
+    });
+  };
 
   const videos = showMore ? allVideos : allVideos.slice(0, 9);
 
@@ -263,7 +278,7 @@ function Index() {
                 className="absolute -inset-3 -z-10 rounded-[2rem] opacity-70 blur-2xl md:-inset-4"
                 style={{ background: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
               />
-              <HeroVideo playing={heroPlaying} onPlay={() => { setHeroPlaying(true); setPlayingVideo(null); }} />
+              <HeroVideo playing={heroPlaying} onPlay={handleHeroPlay} />
 
               {!heroPlaying && (
                 <>
@@ -343,7 +358,7 @@ function Index() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {videos.map((v, i) => (
               <div key={i} className="group overflow-hidden rounded-2xl border border-border bg-white p-3 shadow-sm transition hover:shadow-elegant">
-                <LazyYouTube id={v.id} title={v.title} isPlaying={playingVideo === i} onPlay={() => { setPlayingVideo(i); setHeroPlaying(false); }} />
+                <LazyYouTube id={v.id} title={v.title} isPlaying={playingVideo === i} onPlay={() => handlePlay(i)} />
                 <div className="p-4">
                   <h3 className="text-base font-semibold">{v.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{v.desc}</p>
