@@ -78,13 +78,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
 
+      // ✅ MOBILE OPTIMIZATION (VERY IMPORTANT)
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+
       // ✅ GOOGLE VERIFICATION
       { name: "google-site-verification", content: "zY0qvbk3ZMQB175ZFD6We--QRUac-fxE9lO6CppD0ac" },
 
-      // ✅ SEO TITLE (OPTIMIZED)
-      { title: "Shahedul Islam Ovi | shahedulislamovi.com | Automation & AI Specialist (n8n, Make, Zapier)" },
+      // ✅ CLEAN SEO TITLE (NO DOMAIN DUPLICATION)
+      { title: "Shahedul Islam Ovi — Automation & AI Specialist" },
 
-      // ✅ SEO DESCRIPTION (NAME INCLUDED)
+      // ✅ SEO DESCRIPTION
       {
         name: "description",
         content:
@@ -94,21 +97,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // ✅ AUTHOR
       { name: "author", content: "Shahedul Islam Ovi" },
 
-      // SOCIAL META
+      // ✅ OPEN GRAPH
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://shahedulislamovi.com" },
+
+      // ✅ TWITTER
       { name: "twitter:card", content: "summary_large_image" },
 
-      // ✅ MATCHED TITLES (IMPORTANT)
+      // ✅ TITLES
       {
         property: "og:title",
-        content: "Shahedul Islam Ovi | Automation & AI Specialist | shahedulislamovi.com",
+        content: "Shahedul Islam Ovi — Automation & AI Specialist",
       },
       {
         name: "twitter:title",
-        content: "Shahedul Islam Ovi | Automation & AI Specialist | shahedulislamovi.com",
+        content: "Shahedul Islam Ovi — Automation & AI Specialist",
       },
 
-      // ✅ MATCHED DESCRIPTIONS
+      // ✅ DESCRIPTIONS
       {
         property: "og:description",
         content:
@@ -120,7 +126,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Automation & AI Specialist building systems with n8n, Make.com & Zapier.",
       },
 
-      // IMAGE
+      // ✅ IMAGE
       {
         property: "og:image",
         content:
