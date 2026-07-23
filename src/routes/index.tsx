@@ -176,11 +176,12 @@ function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }
       ) : (
         <button onClick={onPlay} className="group relative block h-full w-full" aria-label="Play intro video">
           <img
-            src="/hero.jpg"
+            src="/hero.webp"
             alt="Shahedul Islam Ovi, Automation & AI Specialist"
             width={520}
             height={520}
             fetchPriority="high"
+            loading="eager"
             className="h-full w-full object-cover"
           />
           <span className="absolute inset-0 flex items-center justify-center bg-black/15 group-hover:bg-black/5 transition">
