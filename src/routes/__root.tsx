@@ -37,6 +37,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -76,23 +77,62 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
+
+      // ✅ GOOGLE VERIFICATION
       { name: "google-site-verification", content: "zY0qvbk3ZMQB175ZFD6We--QRUac-fxE9lO6CppD0ac" },
-      { title: "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier" },
+
+      // ✅ SEO TITLE (OPTIMIZED)
+      { title: "Shahedul Islam Ovi | shahedulislamovi.com | Automation & AI Specialist (n8n, Make, Zapier)" },
+
+      // ✅ SEO DESCRIPTION (NAME INCLUDED)
       {
         name: "description",
         content:
-          "Freelance Workflow Automation & AI Agents specialist. I build systems with n8n, Make.com & Zapier that save time, capture leads, and scale your business on autopilot.",
+          "Shahedul Islam Ovi is an Automation & AI Specialist. I build systems using n8n, Make.com & Zapier to automate workflows, capture leads, and scale businesses.",
       },
-      { name: "author", content: "Zaid Khan" },
+
+      // ✅ AUTHOR
+      { name: "author", content: "Shahedul Islam Ovi" },
+
+      // SOCIAL META
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier" },
-      { name: "twitter:title", content: "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier" },
-      { property: "og:description", content: "Freelance Workflow Automation & AI Agents specialist. I build systems with n8n, Make.com & Zapier that save time, capture leads, and scale your business on autopilot." },
-      { name: "twitter:description", content: "Freelance Workflow Automation & AI Agents specialist. I build systems with n8n, Make.com & Zapier that save time, capture leads, and scale your business on autopilot." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1a3a6f4-a15d-4a22-9969-deb09f955589/id-preview-4995e562--53e2c349-7eb3-4035-88b2-e408a3534a22.lovable.app-1784800680878.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1a3a6f4-a15d-4a22-9969-deb09f955589/id-preview-4995e562--53e2c349-7eb3-4035-88b2-e408a3534a22.lovable.app-1784800680878.png" },
+
+      // ✅ MATCHED TITLES (IMPORTANT)
+      {
+        property: "og:title",
+        content: "Shahedul Islam Ovi | Automation & AI Specialist | shahedulislamovi.com",
+      },
+      {
+        name: "twitter:title",
+        content: "Shahedul Islam Ovi | Automation & AI Specialist | shahedulislamovi.com",
+      },
+
+      // ✅ MATCHED DESCRIPTIONS
+      {
+        property: "og:description",
+        content:
+          "Shahedul Islam Ovi is an Automation & AI Specialist using n8n, Make.com & Zapier to build powerful business workflows.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Automation & AI Specialist building systems with n8n, Make.com & Zapier.",
+      },
+
+      // IMAGE
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1a3a6f4-a15d-4a22-9969-deb09f955589/id-preview-4995e562--53e2c349-7eb3-4035-88b2-e408a3534a22.lovable.app-1784800680878.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1a3a6f4-a15d-4a22-9969-deb09f955589/id-preview-4995e562--53e2c349-7eb3-4035-88b2-e408a3534a22.lovable.app-1784800680878.png",
+      },
     ],
+
     links: [
       { rel: "canonical", href: "https://shahedulislamovi.com" },
       { rel: "stylesheet", href: appCss },
@@ -100,13 +140,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+        href:
+          "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
       },
-
-      /* ✅ UPDATED FAVICON (THIS IS THE ONLY CHANGE) */
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
