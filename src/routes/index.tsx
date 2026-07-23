@@ -126,7 +126,7 @@ function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }
       ) : (
         <button onClick={onPlay} className="group relative block h-full w-full" aria-label="Play intro video">
           <img
-            src={heroAsset.url}
+            src="/hero.jpg"
             alt="Shahedul Islam Ovi, Automation & AI Specialist"
             width={520}
             height={520}
