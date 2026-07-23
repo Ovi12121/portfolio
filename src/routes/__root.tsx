@@ -77,7 +77,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "google-site-verification", content: "zY0qvbk3ZMQB175ZFD6We--QRUac-fxE9lO6CppD0ac" },
-      { name="google-site-verification" content="zY0qvbk3ZMQB175ZFD6We--QRUac-fxE9lO6CppD0ac" },
       { title: "Shahedul Islam Ovi — Automation & AI Specialist | n8n, Make, Zapier" },
       {
         name: "description",
