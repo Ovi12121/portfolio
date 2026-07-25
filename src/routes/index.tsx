@@ -301,7 +301,7 @@ function Index() {
               <span className="h-2 w-2 rounded-full" style={{ background: "var(--cyan)" }} />
               Available for new projects
             </span>
-            <h1 className="mt-3 text-[1.65rem] font-bold leading-[1.08] sm:text-4xl md:mt-5 md:text-5xl lg:text-6xl">
+            <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.08] sm:text-3xl md:mt-5 md:text-4xl lg:text-5xl">
               Automate Your Business.{" "}
               <span
                 className="bg-clip-text text-transparent"
