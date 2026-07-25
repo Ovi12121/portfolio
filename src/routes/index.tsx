@@ -301,14 +301,14 @@ function Index() {
               <span className="h-2 w-2 rounded-full" style={{ background: "var(--cyan)" }} />
               Available for new projects
             </span>
-            <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.08] sm:text-3xl md:mt-5 md:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.2] sm:text-3xl sm:leading-[1.2] md:mt-5 md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
   <span className="whitespace-nowrap">
     Automate Your Business.
   </span>
   <br />
   <span
     className="bg-clip-text text-transparent"
-    style={{ backgroundImage: "linear-gradient(90deg, #06B6D4, #3B82F6)" }}
+    style={{ backgroundImage: "linear-gradient(90deg, #0891B2, #3B82F6)" }}
   >
     Save Time. Cut Costs. <br />
     Scale Faster →
