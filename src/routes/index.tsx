@@ -311,7 +311,7 @@ function Index() {
               </span>
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
-              I build powerful automation systems using AI &amp; no-code tools to eliminate repetitive work and manage leads on autopilot.
+              Stop wasting time on manual work. Capture leads, automate follow-ups, and streamline your entire business with custom AI systems. So you can scale faster without doing everything yourself.
             </p>
             <div className="mt-4 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
               <a href="#work" className="btn-primary !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">View My Work</a>
