@@ -319,7 +319,7 @@ function Index() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
               <a href="#work" className="btn-primary !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">View Automations</a>
-              <a href="#contact" className="btn-outline !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">Let's Talk</a>
+              <a href="#contact" className="btn-outline !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">Start Your Project</a>
             </div>
 
             <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
