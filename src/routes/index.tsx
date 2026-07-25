@@ -302,12 +302,13 @@ function Index() {
               Available for new projects
             </span>
             <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.08] sm:text-3xl md:mt-5 md:text-4xl lg:text-5xl">
-              Automate Your Business.{" "}
+              Automate Your Business. <br />{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
               >
-                Save Time. Cut Costs. Scale Faster.
+                Save Time. Cut Costs. <br />
+                Scale Faster. 
               </span>
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
