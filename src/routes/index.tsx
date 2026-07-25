@@ -302,15 +302,18 @@ function Index() {
               Available for new projects
             </span>
             <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.08] sm:text-3xl md:mt-5 md:text-4xl lg:text-5xl">
-              <span className="whitespace-nowrap">
+  <span className="whitespace-nowrap">
     Automate Your Business.
   </span>
   <br />
-              <span
+  <span
     className="bg-clip-text text-transparent"
-    style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
+    style={{ backgroundImage: "linear-gradient(90deg, #06B6D4, #3B82F6)" }}
   >
-    Save Time. Cut Costs. <br />
+    Save Time. Cut Costs.
+  </span>
+  <br />
+  <span>
     Scale <span className="italic font-black pr-1">Faster.</span> »
   </span>
 </h1>
