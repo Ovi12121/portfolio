@@ -310,11 +310,8 @@ function Index() {
     className="bg-clip-text text-transparent"
     style={{ backgroundImage: "linear-gradient(90deg, #06B6D4, #3B82F6)" }}
   >
-    Save Time. Cut Costs.
-  </span>
-  <br />
-  <span>
-    Scale <span className="italic font-black pr-1">Faster.</span> »
+    Save Time. Cut Costs. <br />
+    Scale Faster →
   </span>
 </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
