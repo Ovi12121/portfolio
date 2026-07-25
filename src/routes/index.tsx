@@ -485,7 +485,7 @@ function Index() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 font-semibold text-[color:var(--primary)] shadow-xl transition hover:-translate-y-0.5"
               >
-                Let's Talk →
+                Start My Project →
               </a>
             </div>
             {/* OR divider */}
