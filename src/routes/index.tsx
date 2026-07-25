@@ -391,7 +391,7 @@ function Index() {
               I'm <span className="font-semibold text-foreground">Ovi</span>, a Workflow Automation & AI Agents Specialist helping businesses and creators eliminate repetitive work and capture more leads automatically.
             </p>
             <p>
-              I design and build custom automation systems tailored to how your business actually operates — whether it's lead capture, follow-ups, social media workflows, CRM processes, or complete client onboarding pipelines.
+              I design and build custom automation systems tailored to how your business actually operates, whether it's lead capture, follow-ups, social media workflows, CRM processes, or complete client onboarding pipelines.
             </p>
             <p>
               While every system is built around your specific needs, most projects focus on eliminating repetitive tasks, improving response time, and making sure no opportunities are missed.
@@ -400,7 +400,7 @@ function Index() {
               My focus is simple: delivering <span className="font-semibold text-foreground">real business results</span>, not just tools. Every system is built to save time, reduce errors, and ensure no opportunity slips through the cracks.
             </p>
             <p>
-              Most of my clients start seeing results within weeks — saving <span className="font-semibold text-foreground">14–35 hours per week</span>, reducing manual admin by 60%+, and responding to leads faster than ever before.
+              Most of my clients start seeing results within weeks, saving <span className="font-semibold text-foreground">14–35 hours per week</span>, reducing manual admin by 60%+, and responding to leads faster than ever before.
             </p>
           </div>
         </div>
