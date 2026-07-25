@@ -307,14 +307,13 @@ function Index() {
   </span>
   <br />
               <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
-              >
-      Save Time. Cut Costs. <br />
-      Scale <span className="italic font-black pr-1">Faster.</span>
-    </span>
-    <span className="not-italic inline-block translate-x-1" style={{ color: "var(--cyan)" }}>»</span>
-  </h1>
+    className="bg-clip-text text-transparent"
+    style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
+  >
+    Save Time. Cut Costs. <br />
+    Scale <span className="italic font-black pr-1">Faster.</span> »
+  </span>
+</h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
               Stop wasting time on manual work. Capture leads, automate follow-ups, and streamline your entire business with custom AI systems. So you can scale faster without doing everything yourself.
             </p>
