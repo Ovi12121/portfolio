@@ -318,7 +318,7 @@ function Index() {
               Stop wasting time on manual work. Capture leads, automate follow-ups, and streamline your entire business with custom AI systems. So you can scale faster without doing everything yourself.
             </p>
             <div className="mt-4 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
-              <a href="#work" className="btn-primary !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">View My Work</a>
+              <a href="#work" className="btn-primary !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">View Automations</a>
               <a href="#contact" className="btn-outline !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4 sm:text-base">Let's Talk</a>
             </div>
 
