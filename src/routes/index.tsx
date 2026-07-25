@@ -308,7 +308,7 @@ function Index() {
   <br />
   <span
     className="bg-clip-text text-transparent"
-    style={{ backgroundImage: "linear-gradient(90deg, #0891B2, #3B82F6)" }}
+    style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
   >
     Save Time. Cut Costs. <br />
     Scale Faster →
