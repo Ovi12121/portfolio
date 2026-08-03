@@ -121,14 +121,54 @@ const testimonials = [
   "What I liked most is that he didn't just jump into tools. He first understood how our process worked and then built automation around it. The final system with n8n actually fits our business instead of forcing us to change everything.",
 ];
 
-// First 2: Individual Client Headshots | Last 3: Corporate/Tech Emblem & Mascot Logo SVGs
-const avatars = [
+// First two client photo URLs
+const clientPhotos = [
   "https://i.pravatar.cc/80?img=12",
   "https://i.pravatar.cc/80?img=32",
-  "https://api.dicebear.com/7.x/shapes/svg?seed=CorporateTech1&backgroundColor=0f172a",
-  "https://api.dicebear.com/7.x/shapes/svg?seed=MascotBrand2&backgroundColor=4338ca",
-  "https://api.dicebear.com/7.x/shapes/svg?seed=BusinessLogo3&backgroundColor=0284c7",
 ];
+
+// Exact SVG Logo 1
+function BrandLogoOne() {
+  return (
+    <svg viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+      <rect width="120" height="120" fill="white"/>
+      <path d="M20 70 Q30 30 60 35 Q90 30 100 70 L85 65 Q75 45 60 50 Q45 45 35 65 Z" fill="#0A2540"/>
+      <path d="M35 65 Q40 80 60 85 Q80 80 85 65 Q70 75 60 70 Q50 75 35 65 Z" fill="#00C2FF"/>
+      <circle cx="48" cy="60" r="3" fill="white"/>
+      <circle cx="72" cy="60" r="3" fill="white"/>
+    </svg>
+  );
+}
+
+// Exact SVG Logo 2
+function BrandLogoTwo() {
+  return (
+    <svg viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+      <rect width="120" height="120" fill="white"/>
+      <circle cx="60" cy="35" r="10" fill="#111827"/>
+      <circle cx="30" cy="75" r="8" fill="#6B7280"/>
+      <circle cx="90" cy="75" r="8" fill="#6B7280"/>
+      <path d="M60 45 L30 70" stroke="#111827" strokeWidth="3"/>
+      <path d="M60 45 L90 70" stroke="#111827" strokeWidth="3"/>
+      <path d="M30 75 L90 75" stroke="#F59E0B" strokeWidth="2"/>
+    </svg>
+  );
+}
+
+// Exact SVG Logo 3
+function BrandLogoThree() {
+  return (
+    <svg viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+      <rect width="120" height="120" fill="white"/>
+      <rect x="30" y="40" width="50" height="30" rx="6" fill="#2563EB"/>
+      <circle cx="45" cy="80" r="6" fill="#1E3A8A"/>
+      <circle cx="75" cy="80" r="6" fill="#1E3A8A"/>
+      <path d="M30 40 L25 30 L15 30" stroke="#2563EB" strokeWidth="4" fill="none"/>
+      <circle cx="45" cy="55" r="3" fill="white"/>
+      <circle cx="65" cy="55" r="3" fill="white"/>
+    </svg>
+  );
+}
 
 function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: string; isPlaying: boolean; onPlay: () => void }) {
   return (
@@ -325,23 +365,29 @@ function Index() {
 
             <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
               <div className="flex -space-x-2.5 sm:-space-x-3">
-                {avatars.map((src, i) => (
+                {/* First 2 Client Photos */}
+                {clientPhotos.map((src, i) => (
                   <img key={i} src={src} alt="" loading="lazy" width={40} height={40} className="h-8 w-8 rounded-full border-2 border-background object-cover bg-white sm:h-10 sm:w-10" />
                 ))}
+                {/* 3 Real SVG Brand Logos */}
+                <div className="h-8 w-8 overflow-hidden rounded-full border-2 border-background sm:h-10 sm:w-10"><BrandLogoOne /></div>
+                <div className="h-8 w-8 overflow-hidden rounded-full border-2 border-background sm:h-10 sm:w-10"><BrandLogoTwo /></div>
+                <div className="h-8 w-8 overflow-hidden rounded-full border-2 border-background sm:h-10 sm:w-10"><BrandLogoThree /></div>
               </div>
+
               <div>
                 <div className="flex items-center gap-1 text-xs sm:text-sm">
-                  {/* Clean SVG Star rating: 4 full yellow stars + 1 half yellow star */}
-                  <div className="flex items-center gap-0.5 text-[#f5b301]">
+                  {/* Star Rating: 4 full yellow stars + 1 star filled from the LEFT side */}
+                  <div className="flex items-center gap-0.5">
                     {[...Array(4)].map((_, i) => (
-                      <svg key={i} className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                      <svg key={i} className="h-4 w-4 fill-[#f5b301]" viewBox="0 0 24 24">
                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                       </svg>
                     ))}
-                    {/* 5th Star: Half Filled (50% yellow, 50% grey) */}
+                    {/* 5th Star: Left-side yellow fill */}
                     <svg className="h-4 w-4" viewBox="0 0 24 24">
                       <path fill="#e2e8f0" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      <path fill="#f5b301" d="M12 2v15.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61z" />
+                      <path fill="#f5b301" d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21L12 17.27z" />
                     </svg>
                   </div>
                   <span className="font-semibold ml-1">4.9</span>
