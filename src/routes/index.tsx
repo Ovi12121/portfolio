@@ -128,7 +128,7 @@ const clientPhotos = [
   "https://i.pravatar.cc/80?img=47",
 ];
 
-// Exact SVG Logo 1
+// SVG Logo 1
 function BrandLogoOne() {
   return (
     <svg width="120" height="120" viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +143,7 @@ function BrandLogoOne() {
   );
 }
 
-// Exact SVG Logo 2
+// SVG Logo 2
 function BrandLogoTwo() {
   return (
     <svg width="120" height="120" viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -379,7 +379,7 @@ function Index() {
                   </div>
                   <span className="font-semibold ml-1">4.9</span>
                 </div>
-                <div className="text-[11px] text-muted-foreground sm:text-xs">Trusted by 40+ businesses & creators</div>
+                <div className="text-[11px] text-muted-foreground sm:text-xs">Trusted by 14+ businesses & creators</div>
               </div>
             </div>
           </div>
@@ -635,7 +635,14 @@ function Index() {
               YouTube
             </a>
             <a href="https://x.com/oviii101" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--cyan)]">X</a>
-            <a href="https://www.linkedin.com/in/shahedul-islam-ovi-6337a1378" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--cyan)]">LinkedIn</a>
+            <a
+              href="https://www.instagram.com/oviii.automation/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--cyan)]"
+            >
+              Instagram
+            </a>
           </div>
           <a href="mailto:hello@shahedulislamovi.com" className="hover:text-[var(--cyan)]">hello@shahedulislamovi.com</a>
         </div>
