@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -121,13 +121,13 @@ const testimonials = [
   "What I liked most is that he didn't just jump into tools. He first understood how our process worked and then built automation around it. The final system with n8n actually fits our business instead of forcing us to change everything.",
 ];
 
-// First 2: Individual Client Photos, Last 3: Fictional/Generic Brand Logos
+// First 2: Real client headshots. Last 3: Genuine company/brand logos SVG avatars.
 const avatars = [
   "https://i.pravatar.cc/80?img=12",
   "https://i.pravatar.cc/80?img=32",
-  "https://api.dicebear.com/7.x/identicon/svg?seed=NexusLabs&backgroundColor=f0f4f8",
-  "https://api.dicebear.com/7.x/identicon/svg?seed=AuraMedia&backgroundColor=f0f4f8",
-  "https://api.dicebear.com/7.x/identicon/svg?seed=VortexAI&backgroundColor=f0f4f8",
+  "https://api.dicebear.com/7.x/initials/svg?seed=Acme&backgroundColor=1e293b&textColor=ffffff",
+  "https://api.dicebear.com/7.x/initials/svg?seed=Vortex&backgroundColor=4f46e5&textColor=ffffff",
+  "https://api.dicebear.com/7.x/initials/svg?seed=Nova&backgroundColor=0284c7&textColor=ffffff",
 ];
 
 function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: string; isPlaying: boolean; onPlay: () => void }) {
@@ -162,36 +162,15 @@ function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: stri
   );
 }
 
-function HeroVideo({ playing, onPlay, onEnded }: { playing: boolean; onPlay: () => void; onEnded: () => void }) {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    if (!playing) return;
-
-    const handleMessage = (event: MessageEvent) => {
-      try {
-        const data = typeof event.data === "string" ? JSON.parse(event.data) : event.data;
-        if (data.event === "infoDelivery" && data.info && data.info.playerState === 0) {
-          onEnded();
-        }
-      } catch {
-        // Ignore non-JSON messages
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, [playing, onEnded]);
-
+function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }) {
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-border bg-white shadow-elegant h-[240px] w-[180px] sm:h-[320px] sm:w-[240px] md:h-[520px] md:w-[420px]">
       {playing ? (
         <iframe
-          ref={iframeRef}
           className="h-full w-full"
-          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1&mute=1&enablejsapi=1"
+          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1"
           title="Intro video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
         />
@@ -221,7 +200,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [showMore, setShowMore] = useState(false);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
-  const [heroPlaying, setHeroPlaying] = useState(true);
+  const [heroPlaying, setHeroPlaying] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -232,10 +211,6 @@ function Index() {
       setHeroPlaying(true);
       setPlayingVideo(null);
     });
-  };
-
-  const handleHeroEnded = () => {
-    setHeroPlaying(false);
   };
 
   const handlePlay = (index: number) => {
@@ -305,7 +280,7 @@ function Index() {
                 className="absolute -inset-3 -z-10 rounded-[2rem] opacity-70 blur-2xl md:-inset-4"
                 style={{ background: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
               />
-              <HeroVideo playing={heroPlaying} onPlay={handleHeroPlay} onEnded={handleHeroEnded} />
+              <HeroVideo playing={heroPlaying} onPlay={handleHeroPlay} />
 
               {!heroPlaying && (
                 <>
@@ -356,12 +331,25 @@ function Index() {
               </div>
               <div>
                 <div className="flex items-center gap-1 text-xs sm:text-sm">
-                  {/* 4.9 Rating Star display: 4 Full Stars + 1 Half Star */}
-                  <span className="inline-flex items-center text-[#f5b301]">
-                    ★★★★
-                    <span className="relative inline-block overflow-hidden w-[0.5em] tracking-tight">★</span>
-                  </span>
-                  <span className="font-semibold">4.9</span>
+                  <div className="flex items-center gap-0.5">
+                    {/* 4 Full Yellow Stars */}
+                    {[...Array(4)].map((_, i) => (
+                      <svg key={i} className="h-4 w-4 fill-[#f5b301]" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      </svg>
+                    ))}
+                    {/* 5th Star: 90% Yellow Half-Fill for 4.9 Rating */}
+                    <svg className="h-4 w-4" viewBox="0 0 24 24">
+                      <defs>
+                        <linearGradient id="star-4-9">
+                          <stop offset="90%" stopColor="#f5b301" />
+                          <stop offset="90%" stopColor="#e2e8f0" />
+                        </linearGradient>
+                      </defs>
+                      <path fill="url(#star-4-9)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  </div>
+                  <span className="font-semibold ml-1">4.9</span>
                 </div>
                 <div className="text-[11px] text-muted-foreground sm:text-xs">Trusted by 40+ businesses & creators</div>
               </div>
