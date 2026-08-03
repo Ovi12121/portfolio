@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -121,12 +121,13 @@ const testimonials = [
   "What I liked most is that he didn't just jump into tools. He first understood how our process worked and then built automation around it. The final system with n8n actually fits our business instead of forcing us to change everything.",
 ];
 
+// First 2: Individual Client Photos, Last 3: Fictional/Generic Brand Logos
 const avatars = [
   "https://i.pravatar.cc/80?img=12",
   "https://i.pravatar.cc/80?img=32",
-  "https://i.pravatar.cc/80?img=47",
-  "https://i.pravatar.cc/80?img=68",
-  "https://i.pravatar.cc/80?img=15",
+  "https://api.dicebear.com/7.x/identicon/svg?seed=NexusLabs&backgroundColor=f0f4f8",
+  "https://api.dicebear.com/7.x/identicon/svg?seed=AuraMedia&backgroundColor=f0f4f8",
+  "https://api.dicebear.com/7.x/identicon/svg?seed=VortexAI&backgroundColor=f0f4f8",
 ];
 
 function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: string; isPlaying: boolean; onPlay: () => void }) {
@@ -161,15 +162,36 @@ function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: stri
   );
 }
 
-function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }) {
+function HeroVideo({ playing, onPlay, onEnded }: { playing: boolean; onPlay: () => void; onEnded: () => void }) {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (!playing) return;
+
+    const handleMessage = (event: MessageEvent) => {
+      try {
+        const data = typeof event.data === "string" ? JSON.parse(event.data) : event.data;
+        if (data.event === "infoDelivery" && data.info && data.info.playerState === 0) {
+          onEnded();
+        }
+      } catch {
+        // Ignore non-JSON messages
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [playing, onEnded]);
+
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-border bg-white shadow-elegant h-[240px] w-[180px] sm:h-[320px] sm:w-[240px] md:h-[520px] md:w-[420px]">
       {playing ? (
         <iframe
+          ref={iframeRef}
           className="h-full w-full"
-          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1"
+          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1&mute=1&enablejsapi=1"
           title="Intro video"
-          allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
         />
@@ -199,7 +221,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [showMore, setShowMore] = useState(false);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
-  const [heroPlaying, setHeroPlaying] = useState(false);
+  const [heroPlaying, setHeroPlaying] = useState(true);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -210,6 +232,10 @@ function Index() {
       setHeroPlaying(true);
       setPlayingVideo(null);
     });
+  };
+
+  const handleHeroEnded = () => {
+    setHeroPlaying(false);
   };
 
   const handlePlay = (index: number) => {
@@ -279,7 +305,7 @@ function Index() {
                 className="absolute -inset-3 -z-10 rounded-[2rem] opacity-70 blur-2xl md:-inset-4"
                 style={{ background: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
               />
-              <HeroVideo playing={heroPlaying} onPlay={handleHeroPlay} />
+              <HeroVideo playing={heroPlaying} onPlay={handleHeroPlay} onEnded={handleHeroEnded} />
 
               {!heroPlaying && (
                 <>
@@ -302,18 +328,18 @@ function Index() {
               Available for new projects
             </span>
             <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.2] sm:text-3xl sm:leading-[1.2] md:mt-5 md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
-  <span className="whitespace-nowrap">
-    Automate Your Business.
-  </span>
-  <br />
-  <span
-    className="bg-clip-text text-transparent"
-    style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
-  >
-    Save Time. Cut Costs. <br />
-    Scale Faster →
-  </span>
-</h1>
+              <span className="whitespace-nowrap">
+                Automate Your Business.
+              </span>
+              <br />
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
+              >
+                Save Time. Cut Costs. <br />
+                Scale Faster →
+              </span>
+            </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
               Stop wasting time on manual work. Capture leads, automate follow-ups, and streamline your entire business with custom AI systems. So you can scale faster without doing everything yourself.
             </p>
@@ -325,12 +351,16 @@ function Index() {
             <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
               <div className="flex -space-x-2.5 sm:-space-x-3">
                 {avatars.map((src, i) => (
-                  <img key={i} src={src} alt="" loading="lazy" width={40} height={40} className="h-8 w-8 rounded-full border-2 border-background object-cover sm:h-10 sm:w-10" />
+                  <img key={i} src={src} alt="" loading="lazy" width={40} height={40} className="h-8 w-8 rounded-full border-2 border-background object-cover bg-white sm:h-10 sm:w-10" />
                 ))}
               </div>
               <div>
                 <div className="flex items-center gap-1 text-xs sm:text-sm">
-                  <span style={{ color: "#f5b301" }}>★★★★★</span>
+                  {/* 4.9 Rating Star display: 4 Full Stars + 1 Half Star */}
+                  <span className="inline-flex items-center text-[#f5b301]">
+                    ★★★★
+                    <span className="relative inline-block overflow-hidden w-[0.5em] tracking-tight">★</span>
+                  </span>
                   <span className="font-semibold">4.9</span>
                 </div>
                 <div className="text-[11px] text-muted-foreground sm:text-xs">Trusted by 40+ businesses & creators</div>
@@ -339,7 +369,7 @@ function Index() {
           </div>
         </div>
 
-      {/* Testimonial strip */}
+        {/* Testimonial strip */}
         <div className="mx-auto max-w-6xl px-6 pb-10">
           <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible">
             {testimonials.map((t, i) => (
