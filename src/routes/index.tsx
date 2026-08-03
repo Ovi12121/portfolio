@@ -121,13 +121,13 @@ const testimonials = [
   "What I liked most is that he didn't just jump into tools. He first understood how our process worked and then built automation around it. The final system with n8n actually fits our business instead of forcing us to change everything.",
 ];
 
-// First 2: Real client headshots. Last 3: Genuine company/brand logos SVG avatars.
+// First 2: Individual Client Headshots | Last 3: Corporate/Tech Emblem & Mascot Logo SVGs
 const avatars = [
   "https://i.pravatar.cc/80?img=12",
   "https://i.pravatar.cc/80?img=32",
-  "https://api.dicebear.com/7.x/initials/svg?seed=Acme&backgroundColor=1e293b&textColor=ffffff",
-  "https://api.dicebear.com/7.x/initials/svg?seed=Vortex&backgroundColor=4f46e5&textColor=ffffff",
-  "https://api.dicebear.com/7.x/initials/svg?seed=Nova&backgroundColor=0284c7&textColor=ffffff",
+  "https://api.dicebear.com/7.x/shapes/svg?seed=CorporateTech1&backgroundColor=0f172a",
+  "https://api.dicebear.com/7.x/shapes/svg?seed=MascotBrand2&backgroundColor=4338ca",
+  "https://api.dicebear.com/7.x/shapes/svg?seed=BusinessLogo3&backgroundColor=0284c7",
 ];
 
 function LazyYouTube({ id, title, isPlaying, onPlay }: { id: string; title: string; isPlaying: boolean; onPlay: () => void }) {
@@ -331,22 +331,17 @@ function Index() {
               </div>
               <div>
                 <div className="flex items-center gap-1 text-xs sm:text-sm">
-                  <div className="flex items-center gap-0.5">
-                    {/* 4 Full Yellow Stars */}
+                  {/* Clean SVG Star rating: 4 full yellow stars + 1 half yellow star */}
+                  <div className="flex items-center gap-0.5 text-[#f5b301]">
                     {[...Array(4)].map((_, i) => (
-                      <svg key={i} className="h-4 w-4 fill-[#f5b301]" viewBox="0 0 24 24">
+                      <svg key={i} className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                       </svg>
                     ))}
-                    {/* 5th Star: 90% Yellow Half-Fill for 4.9 Rating */}
+                    {/* 5th Star: Half Filled (50% yellow, 50% grey) */}
                     <svg className="h-4 w-4" viewBox="0 0 24 24">
-                      <defs>
-                        <linearGradient id="star-4-9">
-                          <stop offset="90%" stopColor="#f5b301" />
-                          <stop offset="90%" stopColor="#e2e8f0" />
-                        </linearGradient>
-                      </defs>
-                      <path fill="url(#star-4-9)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      <path fill="#e2e8f0" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      <path fill="#f5b301" d="M12 2v15.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61z" />
                     </svg>
                   </div>
                   <span className="font-semibold ml-1">4.9</span>
