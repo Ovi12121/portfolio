@@ -167,9 +167,9 @@ function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }
       {playing ? (
         <iframe
           className="h-full w-full"
-          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/F6rtMOsPUzw?autoplay=1"
           title="Intro video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
         />
@@ -199,7 +199,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [showMore, setShowMore] = useState(false);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
-  const [heroPlaying, setHeroPlaying] = useState(true);
+  const [heroPlaying, setHeroPlaying] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -302,18 +302,18 @@ function Index() {
               Available for new projects
             </span>
             <h1 className="mt-3 text-[1.5rem] font-bold leading-[1.2] sm:text-3xl sm:leading-[1.2] md:mt-5 md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
-              <span className="whitespace-nowrap">
-                Automate Your Business.
-              </span>
-              <br />
-              <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
-              >
-                Save Time. Cut Costs. <br />
-                Scale Faster →
-              </span>
-            </h1>
+  <span className="whitespace-nowrap">
+    Automate Your Business.
+  </span>
+  <br />
+  <span
+    className="bg-clip-text text-transparent"
+    style={{ backgroundImage: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
+  >
+    Save Time. Cut Costs. <br />
+    Scale Faster →
+  </span>
+</h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
               Stop wasting time on manual work. Capture leads, automate follow-ups, and streamline your entire business with custom AI systems. So you can scale faster without doing everything yourself.
             </p>
@@ -339,7 +339,7 @@ function Index() {
           </div>
         </div>
 
-        {/* Testimonial strip */}
+      {/* Testimonial strip */}
         <div className="mx-auto max-w-6xl px-6 pb-10">
           <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible">
             {testimonials.map((t, i) => (
