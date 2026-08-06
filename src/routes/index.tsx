@@ -286,6 +286,7 @@ function Index() {
             <a href="#about" className="hover:text-[var(--cyan)]">About</a>
             <a href="#services" className="hover:text-[var(--cyan)]">Services</a>
             <a href="#faq" className="hover:text-[var(--cyan)]">FAQ</a>
+            <a href="https://payment.shahedulislamovi.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--cyan)]">Payment</a>
           </nav>
           <a href="#contact" className="btn-primary text-sm !py-2.5 !px-4">Let's Talk</a>
         </div>
