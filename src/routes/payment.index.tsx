@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/payment")({
+export const Route = createFileRoute("/payment/")({
   head: () => ({
     title: "Monthly Automation Support Plans | Shahedul Islam Ovi",
     meta: [
