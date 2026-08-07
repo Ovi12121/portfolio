@@ -9,6 +9,16 @@
         }
       ],
       "destination": "/payment"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "payment.shahedulislamovi.com"
+        }
+      ],
+      "destination": "/payment/$1"
     }
   ]
 }
