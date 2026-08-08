@@ -7,10 +7,11 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { PaymentPage } from "./payment";
 
 function NotFoundComponent() {
   return (
@@ -142,13 +143,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "canonical", href: "https://shahedulislamovi.com" },
       { rel: "stylesheet", href: appCss },
-       {
-  rel: "preload",
-  href:
-    "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
-  as: "style",
-  crossOrigin: "anonymous",
-},
+      {
+        rel: "preload",
+        href:
+          "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+        as: "style",
+        crossOrigin: "anonymous",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -182,10 +183,17 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [isPaymentSubdomain, setIsPaymentSubdomain] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hostname.startsWith("payment")) {
+      setIsPaymentSubdomain(true);
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      {isPaymentSubdomain ? <PaymentPage /> : <Outlet />}
     </QueryClientProvider>
   );
 }
