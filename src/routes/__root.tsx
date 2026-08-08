@@ -79,13 +79,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
 
-      // ✅ MOBILE OPTIMIZATION (VERY IMPORTANT)
+      // ✅ MOBILE OPTIMIZATION
       { name: "viewport", content: "width=device-width, initial-scale=1" },
 
       // ✅ GOOGLE VERIFICATION
       { name: "google-site-verification", content: "zY0qvbk3ZMQB175ZFD6We--QRUac-fxE9lO6CppD0ac" },
 
-      // ✅ CLEAN SEO TITLE (NO DOMAIN DUPLICATION)
+      // ✅ CLEAN SEO TITLE
       { title: "Shahedul Islam Ovi — Automation & AI Specialist" },
 
       // ✅ SEO DESCRIPTION
@@ -183,17 +183,23 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const [isPaymentSubdomain, setIsPaymentSubdomain] = useState(false);
+  const [mode, setMode] = useState<"loading" | "payment" | "normal">("loading");
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hostname.startsWith("payment")) {
-      setIsPaymentSubdomain(true);
+    if (window.location.hostname.startsWith("payment")) {
+      setMode("payment");
+    } else {
+      setMode("normal");
     }
   }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      {isPaymentSubdomain ? <PaymentPage /> : <Outlet />}
+      {mode === "payment" && <PaymentPage />}
+      {mode === "normal" && <Outlet />}
+      {mode === "loading" && (
+        <div className="min-h-screen bg-background" />
+      )}
     </QueryClientProvider>
   );
 }
