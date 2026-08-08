@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import PaymentPage from "./payment";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -225,6 +226,10 @@ function HeroVideo({ playing, onPlay }: { playing: boolean; onPlay: () => void }
 }
 
 function Index() {
+  if (typeof window !== "undefined" && window.location.hostname.startsWith("payment")) {
+    return <PaymentPage />;
+  }
+
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [showMore, setShowMore] = useState(false);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
