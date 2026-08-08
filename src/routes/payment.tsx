@@ -19,11 +19,8 @@ export function PaymentPage() {
       {/* HEADER / NAV */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="/" className="font-display text-lg font-bold tracking-tight">
+          <a href="https://shahedulislamovi.com" className="font-display text-lg font-bold tracking-tight">
             Shahedul Islam <span style={{ color: "var(--cyan)" }}>Ovi</span>
-          </a>
-          <a href="/" className="btn-outline text-sm !py-2 !px-4">
-            ← Back to Main Site
           </a>
         </div>
       </header>
