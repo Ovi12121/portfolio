@@ -121,7 +121,7 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/starter/buy"
+                  href="https://oviautomation.gumroad.com/l/starter?wanted=true&single=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline w-full text-center block !py-3"
@@ -172,7 +172,7 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/ezjten/buy"
+                  href="https://oviautomation.gumroad.com/l/ezjten?wanted=true&single=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full text-center block !py-3"
