@@ -15,15 +15,9 @@ export const Route = createFileRoute("/payment")({
 
 export function PaymentPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div>
       {/* HEADER / NAV */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="https://shahedulislamovi.com" className="font-display text-lg font-bold tracking-tight">
-            Shahedul Islam <span style={{ color: "var(--cyan)" }}>Ovi</span>
-          </a>
-        </div>
-      </header>
+      Shahedul Islam <span style={{ color: "var(--cyan)" }}>Ovi</span>
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden py-16 md:py-20">
@@ -121,9 +115,8 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/starter?wanted=true&single=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`https://oviautomation.gumroad.com/l/starter?wanted=true&ts=${Date.now()}`}
+                  target="_self"
                   className="btn-outline w-full text-center block !py-3"
                 >
                   Subscribe to Starter
@@ -131,7 +124,7 @@ export function PaymentPage() {
               </div>
             </div>
 
-            {/* PLAN 2: GROWTH (HIGHLIGHTED) */}
+            {/* PLAN 2: GROWTH */}
             <div className="relative flex flex-col justify-between rounded-3xl border-2 border-[var(--cyan)] bg-white p-8 shadow-xl">
               <span
                 className="absolute -top-3.5 right-6 rounded-full px-3 py-1 text-[11px] font-bold text-white shadow"
@@ -172,9 +165,8 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/ezjten?wanted=true&single=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`https://oviautomation.gumroad.com/l/ezjten?wanted=true&ts=${Date.now()}`}
+                  target="_self"
                   className="btn-primary w-full text-center block !py-3"
                 >
                   Subscribe to Growth
