@@ -6,8 +6,7 @@ export const Route = createFileRoute("/payment")({
     meta: [
       {
         name: "description",
-        content:
-          "Ongoing automation maintenance, optimization, and system support for growing businesses.",
+        content: "Ongoing automation maintenance, optimization, and system support for growing businesses.",
       },
     ],
   }),
@@ -16,10 +15,15 @@ export const Route = createFileRoute("/payment")({
 
 export function PaymentPage() {
   return (
-    <div>
-
+    <div className="min-h-screen bg-background text-foreground">
       {/* HEADER / NAV */}
-      Shahedul Islam <span style={{ color: "var(--cyan)" }}>Ovi</span>
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="https://shahedulislamovi.com" className="font-display text-lg font-bold tracking-tight">
+            Shahedul Islam <span style={{ color: "var(--cyan)" }}>Ovi</span>
+          </a>
+        </div>
+      </header>
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden py-16 md:py-20">
@@ -50,6 +54,7 @@ export function PaymentPage() {
             Stop wasting time on manual work. Capture leads, automate follow-ups, and keep your entire business running smoothly with ongoing automation management.
           </p>
 
+          {/* TRUST METRICS */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold sm:text-sm">
             <span className="flex items-center gap-1.5 rounded-lg border border-border/80 bg-white px-3 py-1.5 shadow-sm">
               ⏱ Save 14–35 hours/week
@@ -80,12 +85,12 @@ export function PaymentPage() {
         </div>
       </section>
 
-      {/* PRICING CARDS */}
+      {/* PRICING CARDS SECTION */}
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-8 md:grid-cols-2 md:items-stretch">
-
-            {/* STARTER */}
+            
+            {/* PLAN 1: STARTER */}
             <div className="flex flex-col justify-between rounded-3xl border border-border bg-white p-8 shadow-sm transition hover:shadow-elegant">
               <div>
                 <h3 className="text-xl font-bold">Starter Support Plan</h3>
@@ -96,14 +101,29 @@ export function PaymentPage() {
                 </div>
 
                 <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2"><span className="text-emerald-500 font-bold">✓</span> System monitoring</li>
-                  <li className="flex items-center gap-2"><span className="text-emerald-500 font-bold">✓</span> Fix automations</li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> System monitoring (runs 24/7)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Fix broken automations & APIs
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Small tweaks & minor adjustments
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Direct email support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Monthly health check
+                  </li>
                 </ul>
               </div>
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/starter"
+                  href="https://oviautomation.gumroad.com/l/starter?wanted=true&single=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-outline w-full text-center block !py-3"
                 >
                   Subscribe to Starter
@@ -111,19 +131,50 @@ export function PaymentPage() {
               </div>
             </div>
 
-            {/* GROWTH */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-[var(--cyan)] bg-white p-8 shadow-xl">
+            {/* PLAN 2: GROWTH (HIGHLIGHTED) */}
+            <div className="relative flex flex-col justify-between rounded-3xl border-2 border-[var(--cyan)] bg-white p-8 shadow-xl">
+              <span
+                className="absolute -top-3.5 right-6 rounded-full px-3 py-1 text-[11px] font-bold text-white shadow"
+                style={{ background: "linear-gradient(135deg, var(--cyan), var(--purple))" }}
+              >
+                MOST POPULAR
+              </span>
+
               <div>
                 <h3 className="text-xl font-bold">Growth Automation Plan</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Actively improve & scale your system</p>
                 <div className="mt-6 flex items-baseline gap-1">
                   <span className="text-4xl font-extrabold">$300</span>
-                  <span className="text-sm text-muted-foreground">/ month</span>
+                  <span className="text-sm font-medium text-muted-foreground">/ month</span>
                 </div>
+
+                <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2 text-foreground font-semibold">
+                    <span className="text-emerald-500 font-bold">✓</span> Everything in Starter Plan
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> New workflow improvements
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Funnel optimization
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Priority response support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Proactive strategy suggestions
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span> Monthly performance review
+                  </li>
+                </ul>
               </div>
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/ezjten"
+                  href="https://oviautomation.gumroad.com/l/ezjten?wanted=true&single=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-primary w-full text-center block !py-3"
                 >
                   Subscribe to Growth
@@ -132,9 +183,21 @@ export function PaymentPage() {
             </div>
 
           </div>
+
+          {/* TRUST BADGES FOOTER */}
+          <div className="mt-12 flex flex-wrap justify-center gap-6 text-xs text-muted-foreground">
+            <span>🔒 Secure checkout via Gumroad</span>
+            <span>💳 Monthly billing</span>
+            <span>❌ Cancel anytime</span>
+            <span>📩 Instant confirmation</span>
+          </div>
         </div>
       </section>
 
+      {/* FOOTER */}
+      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+        Shahedul Islam Ovi — Automation & AI Specialist
+      </footer>
     </div>
   );
 }
