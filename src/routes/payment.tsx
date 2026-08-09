@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/payment")({
   head: () => ({
@@ -14,6 +15,18 @@ export const Route = createFileRoute("/payment")({
 });
 
 export function PaymentPage() {
+  // Load Gumroad JS script dynamically to enable slick overlay modal
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://gumroad.com/js/gumroad.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* HEADER / NAV */}
@@ -121,10 +134,9 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/starter?wanted=true&single=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline w-full text-center block !py-3"
+                  className="gumroad-button btn-outline w-full text-center block !py-3"
+                  href="https://oviautomation.gumroad.com/l/starter"
+                  data-gumroad-single-product="true"
                 >
                   Subscribe to Starter
                 </a>
@@ -172,10 +184,9 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://oviautomation.gumroad.com/l/ezjten?wanted=true&single=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary w-full text-center block !py-3"
+                  className="gumroad-button btn-primary w-full text-center block !py-3"
+                  href="https://oviautomation.gumroad.com/l/ezjten"
+                  data-gumroad-single-product="true"
                 >
                   Subscribe to Growth
                 </a>
