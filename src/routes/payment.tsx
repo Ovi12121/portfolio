@@ -121,7 +121,7 @@ export function PaymentPage() {
 
               <div className="mt-8">
                 <a
-                  href="YOUR_GUMROAD_STARTER_URL"
+                  href="https://oviautomation.gumroad.com/l/starter?wanted=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline w-full text-center block !py-3"
