@@ -230,7 +230,7 @@ function Index() {
     return <PaymentPage />;
   }
 
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showMore, setShowMore] = useState(false);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const [heroPlaying, setHeroPlaying] = useState(false);
