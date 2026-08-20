@@ -117,9 +117,21 @@ const faqs = [
 ];
 
 const testimonials = [
-  "We were manually handling leads from 3 different platforms. He built an automation system that organizes everything instantly and now we literally stopped missing leads overnight.",
-  "I didn't even realize how much time we were wasting until he automated our workflow. What used to take hours now runs in the background without us touching anything.",
-  "What I liked most is that he didn't just jump into tools. He first understood how our process worked and then built automation around it. The final system with n8n actually fits our business instead of forcing us to change everything.",
+  {
+    company: "Mohacmedya",
+    logoType: "mohac",
+    text: "We were manually handling leads from 3 different platforms. He built an automation system that organizes everything instantly and now we literally stopped missing leads overnight.",
+  },
+  {
+    company: "Mohacmedya",
+    logoType: "mohac",
+    text: "I didn't even realize how much time we were wasting until he automated our workflow. What used to take hours now runs in the background without us touching anything.",
+  },
+  {
+    company: "Drinkincreative",
+    logoType: "drink",
+    text: "What I liked most is that he didn't just jump into tools. He first understood how our process worked and then built automation around it. The final system with n8n actually fits our business instead of forcing us to change everything.",
+  },
 ];
 
 // First 3 original client photos
@@ -129,32 +141,37 @@ const clientPhotos = [
   "https://i.pravatar.cc/80?img=47",
 ];
 
-// SVG Logo 1
+// SVG Logo 1 - Drink Creative
 function BrandLogoOne() {
   return (
     <svg width="120" height="120" viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-      <rect width="120" height="120" fill="white"/>
-      <rect x="30" y="40" width="50" height="30" rx="6" fill="#2563EB"/>
-      <circle cx="45" cy="80" r="6" fill="#1E3A8A"/>
-      <circle cx="75" cy="80" r="6" fill="#1E3A8A"/>
-      <path d="M30 40 L25 30 L15 30" stroke="#2563EB" strokeWidth="4" fill="none"/>
-      <circle cx="45" cy="55" r="3" fill="white"/>
-      <circle cx="65" cy="55" r="3" fill="white"/>
+      <rect width="120" height="120" fill="white" />
+      <g transform="translate(12, 34) scale(0.24)">
+        <path fill="#02565b" d="M0 0h34.6c28.2 0 46.2 16.5 46.2 40.8s-18 40.8-46.2 40.8H0V0zm16.5 66.8h17.1c18.5 0 29.5-10.7 29.5-26 0-15.4-11-26-29.5-26H16.5v52z" />
+        <path fill="#02565b" d="M89.3 0h36.2c21.8 0 35.8 11.8 35.8 28.6 0 12.8-8.2 22.3-21.7 26.2l26.2 26.8h-20.9l-23.7-25.2h-15.4v25.2H89.3V0zm16.5 42.4h18.7c12.2 0 20.3-6 20.3-14.8 0-8.9-8.1-14.8-20.3-14.8h-18.7v29.6z" />
+        <path fill="#02565b" d="M174.5 0h16.2v37.4h-16.2zm0 44.2h16.2v37.4h-16.2z" />
+        <path fill="#02565b" d="M201.8 0h16.2v50.5l56.8-50.5h16.2v81.6h-16.2V31.1l-56.8 50.5h-16.2V0z" />
+        <path fill="#02565b" d="M312.4 0h16.2v29.5l37.2-29.5h20.6l-43.8 34.8 47.9 46.8h-22.3l-39.6-39.4v39.4h-16.2V0z" />
+      </g>
     </svg>
   );
 }
 
-// SVG Logo 2
+// SVG Logo 2 - Mohac Medya
 function BrandLogoTwo() {
   return (
     <svg width="120" height="120" viewBox="0 0 120 120" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-      <rect width="120" height="120" fill="white"/>
-      <circle cx="60" cy="35" r="10" fill="#111827"/>
-      <circle cx="30" cy="75" r="8" fill="#6B7280"/>
-      <circle cx="90" cy="75" r="8" fill="#6B7280"/>
-      <path d="M60 45 L30 70" stroke="#111827" strokeWidth="3"/>
-      <path d="M60 45 L90 70" stroke="#111827" strokeWidth="3"/>
-      <path d="M30 75 L90 75" stroke="#F59E0B" strokeWidth="2"/>
+      <rect width="120" height="120" fill="#000000" />
+      <path d="M32 30 L40 30 L40 76 L32 76 Z" fill="#ffffff" />
+      <path d="M88 30 L80 30 L80 76 L88 76 Z" fill="#ffffff" />
+      <path d="M32 30 L52 50 L48 55 L32 38 Z" fill="#ffffff" />
+      <path d="M88 30 L68 50 L72 55 L88 38 Z" fill="#ffffff" />
+      <path d="M60 33 C62 33 65 35 67 38 C68 39 67 41 65 42 C67 43 71 45 70 49 C69 52 64 51 61 50 C60 52 63 60 70 65 C68 67 65 67 60 62 C55 67 48 72 38 75 C45 68 52 58 52 48 C52 42 55 35 60 33 Z" fill="#ffffff" />
+      <polygon points="60,68 56,76 64,76" fill="#b9d65d" />
+      <text x="60" y="93" fill="#ffffff" fontSize="10" fontWeight="800" letterSpacing="2.5" textAnchor="middle" fontFamily="sans-serif">MOHAC</text>
+      <line x1="28" y1="102" x2="43" y2="102" stroke="#bda15f" strokeWidth="1.2" />
+      <text x="60" y="105" fill="#bda15f" fontSize="6.5" fontWeight="600" letterSpacing="2" textAnchor="middle" fontFamily="sans-serif">MEDIA</text>
+      <line x1="77" y1="102" x2="92" y2="102" stroke="#bda15f" strokeWidth="1.2" />
     </svg>
   );
 }
@@ -394,9 +411,17 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6 pb-10">
           <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible">
             {testimonials.map((t, i) => (
-              <blockquote key={i} className="min-w-[85%] snap-center rounded-xl border border-border bg-white p-5 text-sm text-muted-foreground shadow-sm md:min-w-0">
-                <div className="mb-2" style={{ color: "#f5b301" }}>★★★★★</div>
-                <p>"{t}"</p>
+              <blockquote key={i} className="flex min-w-[85%] snap-center flex-col justify-between rounded-xl border border-border bg-white p-5 text-sm text-muted-foreground shadow-sm md:min-w-0">
+                <div>
+                  <div className="mb-2" style={{ color: "#f5b301" }}>★★★★★</div>
+                  <p>"{t.text}"</p>
+                </div>
+                <div className="mt-4 flex items-center gap-2.5 border-t border-border/50 pt-3">
+                  <div className="h-6 w-6 shrink-0 overflow-hidden rounded-full border border-border">
+                    {t.logoType === "mohac" ? <BrandLogoTwo /> : <BrandLogoOne />}
+                  </div>
+                  <span className="text-xs font-semibold text-foreground">{t.company}</span>
+                </div>
               </blockquote>
             ))}
           </div>
